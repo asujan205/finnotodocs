@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { cn } from "../../utils/common.ui.utils";
+import Cookies from "js-cookie";
 
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -10,7 +11,34 @@ const SigninPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = async (e: React.SyntheticEvent<HTMLButtonElement>) => {};
+  const handleSubmit = async (e: React.SyntheticEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    setIsLoading(true);
+    try {
+      const response = await fetch("https://meta.finnoto.dev/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const accessToken = data.access_token;
+
+        // Store access token in a cookie
+        Cookies.set("access_token", accessToken);
+
+        // Redirect to a protected page
+        router.push("/protected");
+      } else {
+        console.error("Login failed");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
+  };
 
   return (
     <div>
