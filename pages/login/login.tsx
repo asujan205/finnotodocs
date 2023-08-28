@@ -34,9 +34,12 @@ const SigninPage = () => {
         router.push("/protected");
       } else {
         console.error("Login failed");
+        router.push("/login/login");
+        setIsLoading(false);
       }
     } catch (error) {
       console.error("Error during login:", error);
+      setIsLoading(false);
     }
   };
 

@@ -15,16 +15,21 @@ export async function validateAccessToken(accessToken) {
   }
 }
 
-export default function middleware(req) {
+export default async function middleware(req) {
   const url = req.url;
   const accessToken = req.cookies.get("access_token");
-  const validateToken = validateAccessToken(accessToken);
+  const validateToken = await validateAccessToken(accessToken);
 
   if (url.includes("/protected") && !validateToken) {
-    NextResponse.redirect("/login");
+    return NextResponse.redirect("https://finnotodocs.vercel.app/login/login");
   }
 
-  if (url.includes("/login") && validateToken) {
-    NextResponse.redirect("/protected/readme");
+  if (url.includes("/protected") && validateToken) {
+    return NextResponse.redirect(
+      "https://finnotodocs.vercel.app/protected/readme"
+    );
   }
+
+  // If no redirection conditions are met, allow the request to proceed
+  return NextResponse.next();
 }
