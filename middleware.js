@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 
 export async function validateAccessToken(accessToken) {
   try {
-    const response = await fetch("https://meta.finnoto.dev/auth", {
+    const response = await fetch("https://meta.finnoto.dev/api/auth", {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
@@ -21,13 +21,11 @@ export default async function middleware(req) {
   const validateToken = await validateAccessToken(accessToken);
 
   if (url.includes("/protected") && !validateToken) {
-    return NextResponse.redirect("https://finnotodocs.vercel.app/login/login");
+    return NextResponse.redirect("http://localhost:3000/login/login");
   }
 
   if (url.includes("/protected") && validateToken) {
-    return NextResponse.redirect(
-      "https://finnotodocs.vercel.app/protected/readme"
-    );
+    return NextResponse.redirect("http://localhost:3000/protected/readme");
   }
 
   // If no redirection conditions are met, allow the request to proceed
