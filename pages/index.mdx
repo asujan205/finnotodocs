@@ -1,0 +1,212 @@
+import { Steps } from "nextra/components";
+import { Cards, Card } from "nextra/components";
+import { Callout } from "nextra/components";
+
+# Understanding the Expense Approval Workflow on Finnoto
+
+## Introduction
+
+Efficient management of expenses in an organisation requires a well-structured approval workflow.Finnoto offers a comprehensive Expense Approval Workflow
+system that integrates both a dedicated Point of Contact (POC) approval stage and subsequent rule-based authorization levels. This article dives deeper into them
+intricacies of the workflow, highlighting the significance of POC approval, the subsequent rule-driven approval process, and how to effectively navigate these
+stages.
+
+## The Crucial Role of POC Approval
+
+Before an expense can proceed through the established approval rules, it must first pass through a dedicated Point of Contact (POC) approval. The
+POC serves as the initial gatekeeper, ensuring the legitimacy, accuracy, and necessity of the expense. This crucial step adds an extra layer of scrutiny
+to expenses, preventing unnecessary or inappropriate costs from entering the approval pipeline. POC approval acts as a foundational checkpoint,
+setting the stage for the subsequent stages of approval.
+
+## Integrating Rule-based Authorization
+
+Following the POC approval, the expense enters the realm of rule-based authorization. At this juncture, the Expense Approval Workflow adheres to predefined
+rules and conditions set by the organisation. These rules determine the subsequent approvers and the criteria that must be met for the expense to gain approval.
+By automating this process, Finnoto eliminates manual intervention, reduces errors, and expedites decision-making.
+
+## Navigating the Workflow
+
+<Steps>
+###  POC Approval (Level One - Verification)
+
+The expense initiates its journey with POC approval, the first level of verification. The designated POC evaluates the expense's legitimacy and compliance with company policies.
+
+### Transition to Rule-based Approval
+
+After securing POC approval, the expense progresses to subsequent approval levels. The meticulous rule-based authorization process is triggered, aligning with the predetermined criteria and approval flow.
+
+### Approvers based on Set Rules
+
+The authorization process identifies the next set of approvers based on the established rules. These rules could consider factors like individual,departmental head, managerial levels, user groups, or any other parameters specific to the organisation's structure.
+
+### Efficient Decision-Making
+
+Rule-based authorization expedites decision-making. Approvers are prompted based on their roles and responsibilities, reducing delays and enhancing the efficiency of the approval process.
+
+### Approval Flow Monitoring
+
+The Approval Workflow Tab available in the expense details page in Finnoto provides an at-a-glance overview of the entire approval process. Users can track the progress of each level and view details of completed stages.
+
+### Transfer of Approval Flow
+
+In case of a need to transfer the approval to another individual, the system facilitates a seamless transfer process, ensuring continuity and minimising disruptions.
+
+</Steps>
+
+## Stages of Approval
+
+<Steps>
+
+### Verification Stage
+
+The journey begins here. After POC approval (if assigned), expenses enter the Verification stage. Once approved, the system transitions to
+the next stage, considering the configured approval flows.When a POC rejects an expense, it is immediately cancelled, halting its progress within the workflow and
+preventing them from advancing to subsequent stages.
+
+### FinOps Stage
+
+The approved expenses from the Verification stage move to the FinOps stage. Just like the Verification stage, FinOps has its own approval flow.
+Approvers here assess the financial implications, ensuring compliance with budgets and financial plans.
+
+### Payment Stage
+
+Once the FinOps stage is navigated successfully, expenses proceed to the Payment stage. This is the final approval stage. Similar to the
+In previous stages, Payment has its own approval configuration.
+
+</Steps>
+
+<Callout>
+  When all required approvals within a stage are secured, the expense progresses
+  to the next stage. The specific stage turns green, highlighting its successful
+  progression.
+</Callout>
+
+## Changing States of Expense and Significance
+
+### Open State
+
+    When an expense is unassigned or lacks a Point of Contact (POC), it's in the Open state, awaiting assignment.
+
+### Submitted State
+
+After a POC is assigned, submitting an expense signifies the initiation of the approval process. The Submitted state indicates the expense is in the workflow.
+
+### Pending Approval State
+
+As the expense progresses through each stage, it awaits approval. Whether in Verification, FinOps, or Payment, the Pending Approval state indicates that decisions are pending from the assigned approvers.
+
+### On-Hold State
+
+At any stage, if an approver, including the POC, places the expense on hold, the On-Hold state is activated. This indicates a temporary pause due to specific reasons.
+
+### Approved State
+
+As all stages' approvals are obtained, the expense's Approved state reflects its readiness for processing. This state marks the end of the approval journey.
+
+### Rejected State
+
+If any level of any stage's approval is rejected, the expense is deemed unsuitable for processing. The Rejected state indicates that it cannot advance to subsequent stages.
+
+## Recalling an Expense
+
+<Callout>
+
+Recalling an expense is possible, but only before a payment is recorded. This feature empowers creators to review, amend, or reevaluate expenses, ensuring accuracy and compliance before financial transactions are executed.
+
+Once an expense is recalled it will also be considered as `Rejected` on the system.
+
+</Callout>
+
+## Importance of Approval Workflow
+
+The Approval Workflow system holds several crucial advantages for businesses.
+
+### Control and Compliance
+
+By defining rules and criteria for approvals, organisations can enforce compliance with financial policies and regulations. This prevents unauthorised or non-compliant expenses from being processed.
+
+### Budget Management
+
+Approval Workflows provide a mechanism to monitor and manage expenses against predefined budgets. This helps in controlling overspending and aligning expenditures with financial plans.
+
+### Transparency
+
+The workflow's visibility into approval stages ensures transparency in the process. Employees can track the status of their expense approvals, reducing confusion and delays.
+
+### Reduced Errors
+
+Automation of approval processes reduces the chances of human errors that could occur in manual approval methods.
+
+### Efficiency
+
+Workflow automation accelerates the approval process, eliminating bottlenecks and reducing the time taken for decisions.
+
+## Setting up Expense Approval Workflow on Finnoto
+
+<Steps>
+### Access the Workflows Section
+Log in to Finnoto and navigate to the "Workflows" section.
+
+### Select "Expense Approvals"
+
+From the Workflow dropdown, choose "Expense Approvals."
+
+### Navigate the Expense Approvals Page
+
+Confirm that the Expense Approvals page is displayed.
+
+### Add Approval
+
+Click on "Add Approval" on the top right corner of the page.
+
+### Fill Mandatory Fields
+
+Provide an Approval Name, Set Priority, and Add a Description. Ensure all mandatory fields are completed accurately.
+
+### Define Criteria and Rules
+
+Set criteria for triggering the approval flow. Define rules and conditions using the "+Rule" button.
+
+### Configure Approval Flow
+
+<Steps>
+
+### Choose the type of approval flow
+
+Select the type of approval flow Individual,Department Head, Managerial Hierarchy, User Group, etc.) and enter the flow name.
+
+### Configure User Group Flow
+
+If User Group is chosen, specify the User Group, and set approval options (Any, All, Percentage).
+
+### Add Additional Approval Flows
+
+If needed, add more approval flows and prioritise them using drag-and-drop.
+
+### Auto Approve/Reject
+
+Optionally, choose "Auto Approve" or "Auto Reject" for automatic decisions based on predefined rules.
+
+</Steps>
+
+### Save Configuration
+
+Save the approval configuration.
+
+### Confirmation and Display
+
+Verify that the added approval is visible in the respective tab with accurate information.
+
+### Additional Actions
+
+Utilise actions like editing and copying if required.
+
+### Approval Workflow Tab
+
+Access the Approval Workflow Tab available in expense detail to monitor and manage different approval levels.
+
+</Steps>
+
+## Conclusion
+
+The Expense Approval Workflow on Finnoto is a comprehensive process that encompasses multiple stages, each with its approval flows, states, and significance. This dynamic approach not only automates approvals but also ensures adherence to budgets, compliance, and accountability. Understanding how expenses progress, change states, and interact with different stages provides a holistic view of the workflow's power. It's a functionality that not only enhances financial management but also streamlines organisational processes, ultimately contributing to smoother operations and improved decision-making
