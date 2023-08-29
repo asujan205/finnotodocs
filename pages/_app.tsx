@@ -1,11 +1,14 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 import { AuthProvider } from "../utils/provider/authContext";
+import { ProtectedPage } from "./protected";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
-      <Component {...pageProps} />
+      <ProtectedPage>
+        <Component {...pageProps} />
+      </ProtectedPage>
     </AuthProvider>
   );
 }

@@ -11,6 +11,7 @@ import { validateAccessToken } from "../../auth";
 // Define the type for the context value
 type AuthContextType = {
   isAuthenticated: boolean;
+  logOut: () => void;
 };
 
 export const AuthContext = createContext<AuthContextType | undefined>(
@@ -33,9 +34,18 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     validateToken();
   }, []);
+  const logOut = () => {
+    Cookies.remove("token");
+    setIsAuthenticated(false);
+  };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated }}>
+    <AuthContext.Provider
+      value={{
+        isAuthenticated,
+        logOut,
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );
