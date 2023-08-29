@@ -3,10 +3,8 @@ import { cn } from "../../utils/common.ui.utils";
 import Cookies from "js-cookie";
 
 import { useRouter } from "next/router";
-import Link from "next/link";
 
 import axios from "axios";
-import { r, s } from "nextra/dist/types-c8e621b7";
 
 const SigninPage = () => {
   const [isLoading, setIsLoading] = useState(false);
