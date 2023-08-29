@@ -98,7 +98,10 @@ export default {
   //   }
   // },
 
-  primaryHue: 400,
+  primaryHue: {
+    light: 15,
+    dark: 210,
+  },
   // toc: {
   //   component: ({ toc }) => {
   //     return (
