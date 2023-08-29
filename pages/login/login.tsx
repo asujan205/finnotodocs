@@ -6,13 +6,17 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 
 import axios from "axios";
-import { s } from "nextra/dist/types-c8e621b7";
+import { r, s } from "nextra/dist/types-c8e621b7";
 
 const SigninPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
   const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const GetCookies = () => {
+    const token = Cookies.get("token");
+    console.log(token);
+  };
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -34,6 +38,7 @@ const SigninPage = () => {
       if (response.status === 201) {
         Cookies.set("token", response.data.user.access_token);
 
+        router.push("/protected/readme");
         setIsLoading(false);
       } else {
         setIsLoading(false);
