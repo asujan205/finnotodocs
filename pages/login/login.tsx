@@ -36,7 +36,7 @@ const SigninPage = () => {
       if (response.status === 201) {
         Cookies.set("token", response.data.user.access_token);
 
-        router.push("/protected/readme");
+        router.push("/");
         setIsLoading(false);
       } else {
         setIsLoading(false);
