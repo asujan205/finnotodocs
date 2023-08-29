@@ -3,11 +3,12 @@ import { cn } from "../../utils/common.ui.utils";
 import Cookies from "js-cookie";
 
 import { useRouter } from "next/router";
-
+import { useAuth } from "../../utils/provider/authContext";
 import axios from "axios";
 
 const SigninPage = () => {
   const [isLoading, setIsLoading] = useState(false);
+  const { setIsAuthenticated } = useAuth();
   const router = useRouter();
   const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,6 +38,7 @@ const SigninPage = () => {
         Cookies.set("token", response.data.user.access_token);
 
         router.push("/");
+        setIsAuthenticated(true);
         setIsLoading(false);
       } else {
         setIsLoading(false);

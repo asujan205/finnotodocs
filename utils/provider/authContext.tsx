@@ -4,6 +4,7 @@ import {
   useEffect,
   useState,
   ReactNode,
+  Dispatch,
 } from "react";
 import Cookies from "js-cookie";
 import { validateAccessToken } from "../../auth";
@@ -12,6 +13,7 @@ import { validateAccessToken } from "../../auth";
 type AuthContextType = {
   isAuthenticated: boolean;
   logOut: () => void;
+  setIsAuthenticated: Dispatch<React.SetStateAction<boolean>>;
 };
 
 export const AuthContext = createContext<AuthContextType | undefined>(
@@ -44,6 +46,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       value={{
         isAuthenticated,
         logOut,
+        setIsAuthenticated,
       }}
     >
       {children}
