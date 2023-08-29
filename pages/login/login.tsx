@@ -5,41 +5,42 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+import axios from "axios";
+import { s } from "nextra/dist/types-c8e621b7";
+
 const SigninPage = () => {
   const [isLoading, setIsLoading] = useState(false);
   const router = useRouter();
-  const [email, setEmail] = useState("");
+  const [username, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = async (e: React.SyntheticEvent<HTMLButtonElement>) => {
     e.preventDefault();
     setIsLoading(true);
     try {
-      const response = await fetch("https://meta.finnoto.dev/api/auth/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await axios.post(
+        "https://meta.finnoto.dev/auth/login",
+        {
+          username,
+          password,
         },
-        body: JSON.stringify({ email, password }),
-      });
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-      if (response.ok) {
-        const data = await response.json();
-        const accessToken = data.access_token;
+      if (response.status === 201) {
+        Cookies.set("token", response.data.user.access_token);
 
-        // Store access token in a cookie
-        Cookies.set("access_token", accessToken);
-
-        // Redirect to a protected page
-        router.push("/protected");
-      } else {
-        console.error("Login failed");
-        router.push("/login/login");
         setIsLoading(false);
+      } else {
+        setIsLoading(false);
+        console.log(response);
       }
     } catch (error) {
-      console.error("Error during login:", error);
-      setIsLoading(false);
+      console.log(error);
     }
   };
 

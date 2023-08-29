@@ -2,13 +2,16 @@ import { NextResponse } from "next/server";
 
 export async function validateAccessToken(accessToken) {
   try {
-    const response = await fetch("https://meta.finnoto.dev/api/auth", {
+    const response = await fetch("https://meta.finnoto.dev/auth", {
       headers: {
         Authorization: `Bearer ${accessToken}`,
       },
     });
-
-    return response.ok;
+    console.log("Response from token validation:", response);
+    if (response.status === 200) {
+      return true;
+    }
+    return false;
   } catch (error) {
     console.error("Error during token validation:", error);
     return false;
@@ -17,7 +20,8 @@ export async function validateAccessToken(accessToken) {
 
 export default async function middleware(req) {
   const url = req.url;
-  const accessToken = req.cookies.get("access_token");
+  const accessToken = req.cookies.get("token");
+  console.log("Access token:", accessToken);
   const validateToken = await validateAccessToken(accessToken);
 
   if (url.includes("/protected") && !validateToken) {
