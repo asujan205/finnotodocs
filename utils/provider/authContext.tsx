@@ -1,18 +1,26 @@
 import {
-  ReactNode,
   createContext,
   useContext,
   useEffect,
   useState,
+  ReactNode,
 } from "react";
 import Cookies from "js-cookie";
 import { validateAccessToken } from "../../auth";
 
-export const AuthContext = createContext({});
+// Define the type for the context value
+type AuthContextType = {
+  isAuthenticated: boolean;
+};
+
+export const AuthContext = createContext<AuthContextType | undefined>(
+  undefined
+);
 
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const ValidateToken = async () => {
+
+  const validateToken = async () => {
     const token = Cookies.get("token");
     if (token) {
       const isToken = await validateAccessToken(token);
@@ -23,7 +31,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   useEffect(() => {
-    ValidateToken();
+    validateToken();
   }, []);
 
   return (
@@ -34,5 +42,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 }
 
 export function useAuth() {
-  return useContext(AuthContext);
+  const context = useContext(AuthContext);
+  if (context === undefined) {
+    throw new Error("useAuth must be used within an AuthProvider");
+  }
+  return context;
 }
