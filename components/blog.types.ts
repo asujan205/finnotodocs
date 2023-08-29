@@ -8,5 +8,6 @@ export interface Page {
     title?: string;
     description?: string;
     date?: string;
+    ogImage?: string;
   };
 }
