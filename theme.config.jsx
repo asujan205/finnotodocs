@@ -89,14 +89,14 @@ export default {
   //   },
   // },
 
-  // useNextSeoProps() {
-  //   const { asPath } = useRouter();
-  //   if (asPath !== "/") {
-  //     return {
-  //       titleTemplate: "%s – SWR",
-  //     };
-  //   }
-  // },
+  useNextSeoProps() {
+    const { asPath } = useRouter();
+    if (asPath !== "/") {
+      return {
+        titleTemplate: "%s – Finnoto",
+      };
+    }
+  },
 
   primaryHue: 400,
   // toc: {
