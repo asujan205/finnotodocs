@@ -9,6 +9,7 @@ export interface InputFeildProps {
   className?: string;
   disabled?: boolean;
   required?: boolean;
+  labelClassName?: string;
 }
 
 export interface LabelProps {
