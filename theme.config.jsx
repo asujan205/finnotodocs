@@ -1,19 +1,20 @@
 import { useRouter } from "next/router";
 import { Navbar } from "nextra-theme-docs";
+import { DocsThemeConfig } from "nextra-theme-docs";
 
 export default {
   // project: {
   //   link: "https://github.com/finnoto/fn-new-web",
   // },
 
-  // head: (
-  //   <>
-  //     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  //     <meta property="og:title" content="Nextra" />
+  head: (
+    <>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta property="og:title" content="Nextra" />
 
-  //     <meta property="og:description" content="The next site builder" />
-  //   </>
-  // ),
+      <meta property="og:description" content="The next site builder" />
+    </>
+  ),
   logo: (
     <>
       <img src="/logo.png" alt="Finnoto" width={130} height={120} />
