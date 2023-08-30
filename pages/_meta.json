@@ -3,5 +3,9 @@
   "blog": {
     "title": "Blog",
     "type": "page"
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "type": "page"
   }
 }
