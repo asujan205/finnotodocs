@@ -72,14 +72,14 @@ const SigninPage = () => {
                   Email address
                 </label>
                 <div className="mt-2">
-                  <input
-                    id="email"
-                    name="email"
+                  <InputFeild
                     type="email"
-                    autoComplete="email"
-                    required
-                    className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    name="email"
+                    placeholder="Email address"
+                    value={username}
                     onChange={(e) => setEmail(e.target.value)}
+                    className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                    required={true}
                   />
                 </div>
               </div>
@@ -100,15 +100,6 @@ const SigninPage = () => {
                     className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                     required={true}
                   />
-                  {/* <input
-                    id="password"
-                    name="password"
-                    type="password"
-                    autoComplete="password"
-                    required
-                    className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                    onChange={(e) => setPassword(e.target.value)}
-                  /> */}
                 </div>
                 <div className="mt-6">
                   <Button
@@ -131,12 +122,6 @@ const SigninPage = () => {
                   >
                     Cancel
                   </Button>
-                  {/* <button
-                    className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm"
-                    onClick={() => router.push("/")}
-                  >
-                    Cancel
-                  </button> */}
                 </div>
               </div>
             </form>
