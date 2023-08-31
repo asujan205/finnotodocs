@@ -5,6 +5,8 @@ import Cookies from "js-cookie";
 import { useRouter } from "next/router";
 import { useAuth } from "../../utils/provider/authContext";
 import axios from "axios";
+import InputFeild from "../../components/InputFeild/inputField";
+import { Button } from "../../components/Button/Button";
 
 const SigninPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -51,8 +53,8 @@ const SigninPage = () => {
 
   return (
     <div>
-      <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
+      <div className="flex min-h-full flex-1 flex-col justify-center py-12 sm:px-6 lg:px-8 bg-white">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md ">
           <img
             className="mx-auto h-12 w-auto"
             src="/logo.png"
@@ -104,7 +106,7 @@ const SigninPage = () => {
                   />
                 </div>
                 <div className="mt-6">
-                  <button
+                  <Button
                     type="submit"
                     onClick={handleSubmit}
                     disabled={isLoading}
@@ -116,7 +118,21 @@ const SigninPage = () => {
                     )}
                   >
                     {!isLoading ? "Log in" : "Login in..."}
-                  </button>
+                  </Button>
+
+                  {/* <button
+                    type="submit"
+                    onClick={handleSubmit}
+                    disabled={isLoading}
+                    className={cn(
+                      "flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm ",
+                      "focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600",
+                      "bg-indigo-600  hover:bg-indigo-500 ",
+                      "disabled:cursor-not-allowed disabled:bg-indigo-300 disabled:opacity-50"
+                    )}
+                  >
+                    {!isLoading ? "Log in" : "Login in..."}
+                  </button> */}
                   <button
                     className="flex w-full justify-center rounded-md px-3 py-1.5 text-sm font-semibold leading-6 shadow-sm"
                     onClick={() => router.push("/")}
