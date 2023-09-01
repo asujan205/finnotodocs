@@ -5,7 +5,7 @@ const AuthWrapper = (props: AuthPageProps) => {
   return (
     <div
       className={cn(
-        "flex flex-col mx-auto items-center justify-between min-h-[500px] max-w-[500px] shadow-md rounded-sm py-12 my-auto sm:w-full",
+        "flex flex-col mx-auto mt-16  items-center justify-between min-h-[500px] max-w-[500px] shadow-md rounded-sm py-12  sm:w-full",
         props.className
       )}
     >

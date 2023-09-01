@@ -35,7 +35,7 @@ export const Label = (props: LabelProps) => {
     <label
       htmlFor={props.htmlFor}
       className={cn(
-        "block text-sm font-medium leading-6 text-gray-900",
+        "block text-sm font-medium leading-6  text-black",
         props.className
       )}
     >
