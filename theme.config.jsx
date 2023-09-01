@@ -1,6 +1,4 @@
 import { useRouter } from "next/router";
-import { Navbar } from "nextra-theme-docs";
-import { DocsThemeConfig } from "nextra-theme-docs";
 
 export default {
   // project: {
@@ -9,6 +7,8 @@ export default {
 
   head: (
     <>
+      <link rel="shortcut icon" href="/favicon.ico" />
+
       <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <meta property="og:title" content="Nextra" />
 
