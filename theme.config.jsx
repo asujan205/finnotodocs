@@ -28,7 +28,7 @@ export default {
   // This is done for the edit page on github link
 
   editLink: {
-    text: "Edit this page on GitHub ",
+    text: "Edit this page on Codesandbox ",
   },
   feedback: {
     content: "Is this page helpful?",

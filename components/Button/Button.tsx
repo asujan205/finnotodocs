@@ -40,7 +40,11 @@ const Button: React.FC<ButtonProps> = ({
       type={type}
       onClick={onClick}
       disabled={disabled || loading}
-      className={getButtonClassNames()}
+      className={cn(
+        "",
+
+        getButtonClassNames()
+      )}
     >
       {loading ? "Loading..." : children}
     </button>
