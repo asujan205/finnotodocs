@@ -96,6 +96,7 @@ const LoginForm = () => {
           apperance={"login"}
           loading={isLoading}
           disabled={false}
+          className="dark:bg-black"
         >
           Log in
         </Button>
