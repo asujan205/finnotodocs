@@ -1,5 +1,5 @@
-import IconWrapper from "../../components/Authpage/iconwraper";
-import AuthWrapper from "../../components/Authpage/authPage";
+import IconWrapper from "../../Modules/Authpage/iconwraper";
+import AuthWrapper from "../../Modules/Authpage/authPage";
 import LoginForm from "../../components/Form/login.form";
 
 const SigninPage = () => {

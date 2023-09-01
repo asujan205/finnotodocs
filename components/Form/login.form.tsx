@@ -5,7 +5,7 @@ import { useState } from "react";
 import InputFeild from "../InputFeild/inputField";
 import Button from "../Button/Button";
 import { useRouter } from "next/router";
-import { useAuth } from "../../utils/provider/authContext";
+import { useAuth } from "../../Modules/provider/authContext";
 import axios from "axios";
 import Cookies from "js-cookie";
 
