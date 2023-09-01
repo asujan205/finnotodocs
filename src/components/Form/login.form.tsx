@@ -28,7 +28,9 @@ const LoginForm = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { setIsAuthenticated } = useAuth();
   const router = useRouter();
+  const [error, setError] = useState("");
 
+  const [isChange, setIsChange] = useState("cancel");
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const { username, password } = data;
 
@@ -56,51 +58,60 @@ const LoginForm = () => {
       } else {
         setIsLoading(false);
         console.log(response);
+        if (response.data.message) {
+          setError(response.data.message);
+        } else {
+          setError(response.data.columns.password);
+        }
       }
     } catch (error) {
       console.log(error);
+      setIsLoading(false);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-      <InputFeild
-        type="email"
-        placeholder="Email address"
-        label="Email address *"
-        required={true}
-        {...register("username")}
-      />
-      {errors.username && <span>{errors.username.message}</span>}
-      <InputFeild
-        type="password"
-        placeholder="Password"
-        label="Password *"
-        required={true}
-        {...register("password")}
-      />
-      {errors.password && <span>{errors.password.message}</span>}
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <InputFeild
+          type="email"
+          placeholder="Email address"
+          label="Email address *"
+          required={true}
+          {...register("username")}
+        />
+        {errors.username && <span>{errors.username.message}</span>}
+        <InputFeild
+          type="password"
+          placeholder="Password"
+          label="Password *"
+          required={true}
+          {...register("password")}
+        />
+        {errors.password && <span>{errors.password.message}</span>}
 
-      <Button
-        type="submit"
-        apperance="login"
-        loading={isLoading}
-        disabled={false}
-      >
-        Log in
-      </Button>
+        {error && <span>{error}</span>}
+        <Button
+          type="submit"
+          apperance={"login"}
+          loading={isLoading}
+          disabled={false}
+        >
+          Log in
+        </Button>
 
-      <Button
-        type="button"
-        apperance="cancel"
-        loading={false}
-        disabled={false}
-        onClick={() => router.push("/")}
-        className="mt-2 text-black"
-      >
-        Cancel
-      </Button>
-    </form>
+        <Button
+          type="button"
+          apperance="cancel"
+          loading={false}
+          disabled={false}
+          onClick={() => router.push("/")}
+          className="mt-2 text-black"
+        >
+          Cancel
+        </Button>
+      </form>
+    </>
   );
 };
 
