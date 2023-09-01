@@ -7,7 +7,10 @@ const InputFeild = forwardRef<HTMLInputElement, InputFeildProps>(
   (props, ref) => {
     return (
       <div className="input-container">
-        <label htmlFor={props.name} className={props.labelClassName}>
+        <label
+          htmlFor={props.name}
+          className={cn("text-black", props.labelClassName)}
+        >
           {props.label}
         </label>
         <input
