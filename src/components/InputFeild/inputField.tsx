@@ -28,7 +28,7 @@ const InputFeild = forwardRef<HTMLInputElement, InputFeildProps>(
           value={props.value}
           onChange={props.onChange}
           className={cn(
-            "block bg-white w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  ",
+            "block dark:bg-white w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  ",
 
             props.className
           )}

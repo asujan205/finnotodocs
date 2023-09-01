@@ -8,7 +8,11 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <AuthProvider>
       <ProtectedPage>
-        <ThemeProvider>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem={true}
+        >
           <Component {...pageProps} />
         </ThemeProvider>
       </ProtectedPage>

@@ -30,7 +30,6 @@ const LoginForm = () => {
   const router = useRouter();
   const [error, setError] = useState("");
 
-  const [isChange, setIsChange] = useState("cancel");
   const onSubmit: SubmitHandler<FormValues> = async (data) => {
     const { username, password } = data;
 
@@ -58,11 +57,6 @@ const LoginForm = () => {
       } else {
         setIsLoading(false);
         console.log(response);
-        if (response.data.message) {
-          setError(response.data.message);
-        } else {
-          setError(response.data.columns.password);
-        }
       }
     } catch (error) {
       console.log(error);
@@ -90,7 +84,6 @@ const LoginForm = () => {
         />
         {errors.password && <span>{errors.password.message}</span>}
 
-        {error && <span>{error}</span>}
         <Button
           type="submit"
           apperance={"login"}
