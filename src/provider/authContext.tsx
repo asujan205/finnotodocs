@@ -7,7 +7,7 @@ import {
   Dispatch,
 } from "react";
 import Cookies from "js-cookie";
-import { validateAccessToken } from "../../auth";
+import { validateAccessToken } from "../utils/auth";
 
 // Define the type for the context value
 type AuthContextType = {

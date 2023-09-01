@@ -1,4 +1,4 @@
-import { useAuth } from "../Modules/provider/authContext";
+import { useAuth } from "../provider/authContext";
 
 export const Logout = () => {
   const { logOut } = useAuth();

@@ -1,4 +1,4 @@
-import { useAuth } from "../Modules/provider/authContext";
+import { useAuth } from "../provider/authContext";
 import { useRouter } from "next/router";
 import SigninPage from "./login";
 
