@@ -81,7 +81,12 @@ const LoginForm = () => {
       />
       {errors.password && <span>{errors.password.message}</span>}
 
-      <Button type="submit" apperance="login" loading={false} disabled={false}>
+      <Button
+        type="submit"
+        apperance="login"
+        loading={isLoading}
+        disabled={false}
+      >
         Log in
       </Button>
 
