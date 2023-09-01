@@ -68,42 +68,26 @@ const SigninPage = () => {
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <form className="space-y-6">
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Email address
-              </label>
-              <div className="mt-2">
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  onChange={(e) => setEmail(e.target.value)}
-                />
-              </div>
+              <InputFeild
+                type="email"
+                name="email"
+                placeholder="Email address"
+                value={username}
+                onChange={(e) => setEmail(e.target.value)}
+                required
+                label="Email address *"
+              />
             </div>
             <div>
-              <label
-                htmlFor="email"
-                className="block text-sm font-medium leading-6 text-gray-900"
-              >
-                Password
-              </label>
-              <div className="mt-2">
-                <input
-                  id="password"
-                  name="password"
-                  type="password"
-                  autoComplete="password"
-                  required
-                  className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-                  onChange={(e) => setPassword(e.target.value)}
-                />
-              </div>
+              <InputFeild
+                type="password"
+                name="password"
+                placeholder="Password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                required
+                label="Password *"
+              />
               <div className="mt-6">
                 <Button
                   type="submit"

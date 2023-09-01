@@ -10,6 +10,7 @@ export interface InputFeildProps {
   disabled?: boolean;
   required?: boolean;
   labelClassName?: string;
+  label?: string;
 }
 
 export interface LabelProps {
