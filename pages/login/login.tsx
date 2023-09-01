@@ -119,6 +119,7 @@ const SigninPage = () => {
                   type="button"
                   apperance="cancel"
                   onClick={() => router.push("/")}
+                  className="mt-6 text-black"
                 >
                   Cancel
                 </Button>
