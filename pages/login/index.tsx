@@ -7,6 +7,8 @@ import { useAuth } from "../../utils/provider/authContext";
 import axios from "axios";
 import InputFeild from "../../components/InputFeild/inputField";
 import Button from "../../components/Button/Button";
+import IconWrapper from "../../components/Authpage/iconwraper";
+import AuthWrapper from "../../components/Authpage/authPage";
 
 const SigninPage = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -49,22 +51,8 @@ const SigninPage = () => {
 
   return (
     <div className="bg-white w-screen h-screen">
-      <div className="flex flex-col mx-auto items-center justify-between min-h-[500px] max-w-[500px] shadow-md rounded-sm py-12 my-auto sm:w-full">
-        <div className="sm:mx-auto sm:w-full sm:max-w-md">
-          <img
-            className="mx-auto h-12 w-auto"
-            src="/logo-1.png"
-            alt="logo"
-            onClick={() => router.push("/")}
-          />
-          <h2 className="mt-6 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">
-            Sign In
-          </h2>
-          <p className="mt-2 text-center text-sm leading-5 text-gray-600 max-w">
-            Enter yours credentials to access your account
-          </p>
-        </div>
-
+      <AuthWrapper>
+        <IconWrapper />
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <form className="space-y-6">
             <div>
@@ -111,7 +99,7 @@ const SigninPage = () => {
             </div>
           </form>
         </div>
-      </div>
+      </AuthWrapper>
     </div>
   );
 };
