@@ -1,10 +1,13 @@
 import { SubmitHandler, useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { FormProps } from "./forms.types";
-
+import { useState } from "react";
 import InputFeild from "../InputFeild/inputField";
 import Button from "../Button/Button";
+import { useRouter } from "next/router";
+import { useAuth } from "../../utils/provider/authContext";
+import axios from "axios";
+import Cookies from "js-cookie";
 
 const schema = z.object({
   username: z.string().email(),
@@ -22,10 +25,45 @@ const LoginForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormValues> = (data) => console.log(data);
+  const [isLoading, setIsLoading] = useState(false);
+  const { setIsAuthenticated } = useAuth();
+  const router = useRouter();
+
+  const onSubmit: SubmitHandler<FormValues> = async (data) => {
+    const { username, password } = data;
+
+    setIsLoading(true);
+    try {
+      const response = await axios.post(
+        "https://meta.finnoto.dev/auth/login",
+        {
+          username,
+          password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+
+      if (response.status === 201) {
+        Cookies.set("token", response.data.user.access_token);
+
+        router.push("/");
+        setIsAuthenticated(true);
+        setIsLoading(false);
+      } else {
+        setIsLoading(false);
+        console.log(response);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <InputFeild
         type="email"
         placeholder="Email address"
@@ -45,6 +83,17 @@ const LoginForm = () => {
 
       <Button type="submit" apperance="login" loading={false} disabled={false}>
         Log in
+      </Button>
+
+      <Button
+        type="button"
+        apperance="cancel"
+        loading={false}
+        disabled={false}
+        onClick={() => router.push("/")}
+        className="mt-6 text-black"
+      >
+        Cancel
       </Button>
     </form>
   );
