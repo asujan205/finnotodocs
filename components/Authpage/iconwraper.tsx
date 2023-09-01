@@ -6,7 +6,7 @@ const IconWrapper = () => {
   return (
     <div className="sm:mx-auto sm:w-full sm:max-w-md">
       <img
-        className="mx-auto h-12 w-auto"
+        className="mx-auto h-12 w-auto cursor-pointer"
         src="/logo-1.png"
         alt="logo"
         onClick={() => router.push("/")}
