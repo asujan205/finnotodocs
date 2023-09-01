@@ -6,7 +6,8 @@ const ProtectedPage = ({ children }: any) => {
   const { isAuthenticated } = useAuth();
   const router = useRouter();
   if (!isAuthenticated && router.pathname.includes("/dashboard")) {
-    return <SigninPage />;
+    router.push("/login");
+    return null;
   }
 
   return children;
