@@ -91,7 +91,7 @@ const LoginForm = () => {
         loading={false}
         disabled={false}
         onClick={() => router.push("/")}
-        className="mt-6 text-black"
+        className="mt-2 text-black"
       >
         Cancel
       </Button>
