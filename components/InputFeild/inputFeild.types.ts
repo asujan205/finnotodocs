@@ -11,6 +11,7 @@ export interface InputFeildProps {
   required?: boolean;
   labelClassName?: string;
   label?: string;
+  style?: React.CSSProperties;
 }
 
 export interface LabelProps {

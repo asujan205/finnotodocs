@@ -3,6 +3,13 @@ import { InputFeildProps } from "./inputFeild.types";
 import { cn } from "../../utils/common.ui.utils";
 import { LabelProps } from "./inputFeild.types";
 
+const styles = {
+  input: {
+    background: "rgb(243 244 246 / var(--tw-bg-opacity))",
+    focus: "ring-2  ring-offset-2 ring-indigo-500 ",
+  },
+};
+
 const InputFeild = forwardRef<HTMLInputElement, InputFeildProps>(
   (props, ref) => {
     return (
@@ -21,9 +28,11 @@ const InputFeild = forwardRef<HTMLInputElement, InputFeildProps>(
           value={props.value}
           onChange={props.onChange}
           className={cn(
-            "block bg-white w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6",
+            "block bg-white w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400  ",
+
             props.className
           )}
+          style={styles.input}
           required={props.required}
         />
       </div>
